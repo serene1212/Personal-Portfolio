@@ -1,7 +1,5 @@
 # Personal-Portfolio
 
-# Personal-Portfolio
-
 ## Description
 ![Description](https://img.shields.io/badge/Description-View%20Details-blue)
 
