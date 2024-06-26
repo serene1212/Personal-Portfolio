@@ -9,7 +9,9 @@ from .models import *
 class Home(View):
     def get(self, request):
         form = ContactForm()
-        contexts = {'form': form}
+        user = User.objects.first()
+        job_experience = user.job_experiences.all()
+        contexts = {'form': form, 'job_experiences': job_experience}
 
     def post(self, request):
         form = ContactForm(request.POST)
