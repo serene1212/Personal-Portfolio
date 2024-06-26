@@ -54,12 +54,12 @@ class User(models.Model):
     github_link = models.URLField(blank=True)
     linkedin_link = models.URLField(blank=True)
 
-    projects = models.ForeignKey(Project, on_delete=models.DO_NOTHING)
-    skills = models.ForeignKey(Skill, on_delete=models.DO_NOTHING)
-    interests = models.ForeignKey(Interest, on_delete=models.DO_NOTHING)
-    job_experiences = models.ForeignKey(JobExperience, blank=True, null=True, on_delete=models.DO_NOTHING)
-    educations = models.ForeignKey(Education, on_delete=models.DO_NOTHING)
-    courses = models.ForeignKey(Course, on_delete=models.DO_NOTHING)
+    projects = models.ManyToManyField(Project)
+    skills = models.ManyToManyField(Skill)
+    interests = models.ManyToManyField(Interest)
+    job_experiences = models.ManyToManyField(JobExperience, blank=True, null=True)
+    educations = models.ManyToManyField(Education)
+    courses = models.ManyToManyField(Course)
 
 
 class Message(models.Model):
