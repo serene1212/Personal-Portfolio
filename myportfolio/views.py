@@ -11,7 +11,13 @@ class Home(View):
         form = ContactForm()
         user = User.objects.first()
         job_experience = user.job_experiences.all()
-        contexts = {'form': form, 'job_experiences': job_experience}
+        educations = user.educations.all()
+        contexts = {
+            'form': form,
+            'job_experiences': job_experience,
+            'user': user,
+            'educations': educations,
+        }
 
     def post(self, request):
         form = ContactForm(request.POST)
