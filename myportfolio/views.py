@@ -13,7 +13,6 @@ class Home(View):
         job_experience = user.job_experiences.all()
         educations = user.educations.all()
         skills = user.skills.all()
-        work_flows = user.work_flows.all()
         interests = user.interests.all()
         courses = user.courses.all()
         projects = user.projects.all()
@@ -23,7 +22,6 @@ class Home(View):
             'user': user,
             'educations': educations,
             'skills': skills,
-            'work_flows': work_flows,
             'interests': interests,
             'courses': courses,
             'projects': projects,
