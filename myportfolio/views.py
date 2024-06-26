@@ -16,6 +16,7 @@ class Home(View):
         work_flows = user.work_flows.all()
         interests = user.interests.all()
         courses = user.courses.all()
+        projects = user.projects.all()
         contexts = {
             'form': form,
             'job_experiences': job_experience,
@@ -25,6 +26,7 @@ class Home(View):
             'work_flows': work_flows,
             'interests': interests,
             'courses': courses,
+            'projects': projects,
 
         }
 
