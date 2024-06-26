@@ -59,7 +59,7 @@ class User(models.Model):
     github_link = models.URLField(blank=True)
     linkedin_link = models.URLField(blank=True)
 
-    projects = models.ForeignKey(Projects, on_delete=models.DO_NOTHING)
+    projects = models.ForeignKey(Project, on_delete=models.DO_NOTHING)
     skills = models.ForeignKey(Skill, on_delete=models.DO_NOTHING)
     work_flows = models.ForeignKey(WorkFlow, on_delete=models.DO_NOTHING)
     interests = models.ForeignKey(Interest, on_delete=models.DO_NOTHING)
