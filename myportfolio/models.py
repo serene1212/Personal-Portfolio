@@ -18,6 +18,11 @@ class WorkFlow(models.Model):
     description = models.TextField()
 
 
+class Interest(models.Model):
+    name = models.CharField(max_length=255)
+    description = models.TextField()
+
+
 class JobExperience(models.Model):
     job_title = models.CharField(max_length=255)
     company_name = models.CharField(max_length=255)
@@ -40,7 +45,7 @@ class Course(models.Model):
     skills = models.ManyToManyField(Skill)
     start_date = models.DateField()
     end_date = models.DateField()
-    certificate = models.ImageField(upload_to="media/img/certificates", default=None, blank=True)
+    certificate = models.ImageField(upload_to="media/img/certificates", default=None, blank=True, null=True)
 
 
 class User(models.Model):
@@ -60,6 +65,7 @@ class User(models.Model):
     projects = models.ForeignKey(Projects, on_delete=models.DO_NOTHING)
     skills = models.ForeignKey(Skill, on_delete=models.DO_NOTHING)
     work_flows = models.ForeignKey(WorkFlow, on_delete=models.DO_NOTHING)
+    interests = models.ForeignKey(Interest, on_delete=models.DO_NOTHING)
     job_experiences = models.ForeignKey(JobExperience, on_delete=models.DO_NOTHING)
     educations = models.ForeignKey(Education, on_delete=models.DO_NOTHING)
     courses = models.ForeignKey(Course, on_delete=models.DO_NOTHING)

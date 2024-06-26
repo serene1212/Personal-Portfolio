@@ -120,8 +120,10 @@
             <section class="resume-section" id="interests">
                 <div class="resume-section-content">
                     <h2 class="mb-5">Interests</h2>
-                    <p>Gaming: A professional gamer in Mobile Legends, I bring the same strategic acumen and team collaboration required for high-stakes competition to my role as a backend developer. My gaming experience has honed my analytical thinking and decision-making skills, essential for developing robust and scalable Django applications.</p>
-                    <p>Swimming: Parallel to my technical career, I am a professional swimmer, a discipline that demands rigorous training and a strong mental focus. The perseverance and dedication required to excel in swimming are directly transferable to my professional endeavors, ensuring that I approach each project with the same level of commitment and endurance.</p>
+                    {% for interest in interests %}
+                    <h3 class="mb-0">{{ interest.name }}</h3>
+                    <p class="small">{{ interest.description }}</p>
+                    {% endfor %}
                 </div>
             </section>
             <hr class="m-0" />
