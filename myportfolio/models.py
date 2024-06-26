@@ -45,7 +45,7 @@ class Course(models.Model):
     skills = models.ManyToManyField(Skill)
     start_date = models.DateField()
     end_date = models.DateField()
-    certificate = models.ImageField(upload_to="media/img/certificates", default=None, blank=True, null=True)
+    certificate = models.URLField(default=None, blank=True, null=True)
 
 
 class User(models.Model):
