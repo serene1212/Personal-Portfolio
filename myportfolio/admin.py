@@ -13,6 +13,11 @@ class EducationAdmin(admin.ModelAdmin):
     list_display = ['school_name']
 
 
+@admin.register(Interest)
+class InterestAdmin(admin.ModelAdmin):
+    list_display = ['name']
+
+
 models = apps.get_models()
 
 for model in models:
