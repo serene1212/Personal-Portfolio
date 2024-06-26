@@ -10970,3 +10970,8 @@ section.resume-section .resume-section-content {
     padding-bottom: 5rem;
   }
 }
+
+.django-icon {
+  width: 10px;
+  height: 10px;
+}
