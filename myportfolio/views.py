@@ -35,11 +35,13 @@ class Home(View):
             email = form.cleaned_data.get('email')
             message = form.cleaned_data.get('message')
 
+            Message.objects.create(name=name, email=email, message=message)
+
             send_mail(
-                f'Message from {name}',
-                message,
-                email,
-                ['arshiarezagholi1212@gmail.com'],
+                f'Message from Arshia Rezagholi',
+                'Hey, i have received your message. i will get back to you soon.',
+                'arshiarezagholi1212@gmail.com',
+                [email],
             )
             return redirect('thanks')
         return render(request, "index.html", {'form': form})

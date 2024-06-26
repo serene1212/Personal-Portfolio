@@ -69,3 +69,9 @@ class User(models.Model):
     job_experiences = models.ForeignKey(JobExperience, on_delete=models.DO_NOTHING)
     educations = models.ForeignKey(Education, on_delete=models.DO_NOTHING)
     courses = models.ForeignKey(Course, on_delete=models.DO_NOTHING)
+
+
+class Message(models.Model):
+    name = models.CharField(max_length=100)
+    email = models.EmailField()
+    message = models.TextField()
