@@ -43,7 +43,7 @@ class User(models.Model):
     last_name = models.CharField(max_length=100)
     bio = models.TextField()
 
-    profile_picture = models.ImageField(upload_to="media/img/profile_pictures", default="profile.jpg")
+    profile_picture = models.ImageField(upload_to="static/img", default="profile.jpg")
 
     contact_email = models.EmailField()
     github_link = models.URLField(blank=True)
