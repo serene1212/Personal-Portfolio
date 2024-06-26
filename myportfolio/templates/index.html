@@ -79,6 +79,7 @@
             <section class="resume-section" id="experience">
                 <div class="resume-section-content">
                     <h2 class="mb-5">Experience</h2>
+                    {% if job_experiences %}
                     {% for experience in job_experiences %}
                     <div class="d-flex flex-column flex-md-row justify-content-between mb-5">
                         <div class="flex-grow-1">
@@ -89,6 +90,7 @@
                         <div class="flex-shrink-0"><span class="text-primary">{{ experience.start_date }} - {% if experience.end_date %}{{ experience.end_date }}{% else %}Present{% endif %}</span></div>
                     </div>
                     {% endfor %}
+                    {% endif %} 
                 </div>
             </section>
             <hr class="m-0" />
