@@ -54,7 +54,7 @@ class User(models.Model):
     bio = models.TextField()
     country = models.CharField(max_length=100)
     city = models.CharField(max_length=100)
-    phone_number = models.CharField(max_length=12)
+    phone_number = models.CharField(max_length=100)
 
     profile_picture = models.ImageField(upload_to="static/img", default="profile.jpg")
 
