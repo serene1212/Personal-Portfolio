@@ -3,16 +3,30 @@ from django.views import View
 from django.core.mail import send_mail
 
 from .forms import ContactForm
+from .models import *
 
 
-def home(request):
-    pass
-
-
-class Contact(View):
+class Home(View):
     def get(self, request):
         form = ContactForm()
-        return render(request, "contact.html", {"form": form})
+        user = User.objects.first()
+        job_experience = user.job_experiences.all()
+        educations = user.educations.all()
+        skills = user.skills.all()
+        work_flows = user.work_flows.all()
+        interests = user.interests.all()
+        courses = user.courses.all()
+        contexts = {
+            'form': form,
+            'job_experiences': job_experience,
+            'user': user,
+            'educations': educations,
+            'skills': skills,
+            'work_flows': work_flows,
+            'interests': interests,
+            'courses': courses,
+
+        }
 
     def post(self, request):
         form = ContactForm(request.POST)
@@ -28,7 +42,7 @@ class Contact(View):
                 ['arshiarezagholi1212@gmail.com'],
             )
             return redirect('thanks')
-        return render(request, "contact.html", {'form': form})
+        return render(request, "index.html", {'form': form})
 
 
 def thanks(request):
