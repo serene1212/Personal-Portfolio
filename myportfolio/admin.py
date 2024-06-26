@@ -8,6 +8,11 @@ class CourseAdmin(admin.ModelAdmin):
     list_display = ['name']
 
 
+@admin.register(Education)
+class EducationAdmin(admin.ModelAdmin):
+    list_display = ['school_name']
+
+
 models = apps.get_models()
 
 for model in models:
