@@ -29,6 +29,7 @@ class Home(View):
             'projects': projects,
 
         }
+        return render(request, 'index.html', context=contexts)
 
     def post(self, request):
         form = ContactForm(request.POST)
