@@ -57,7 +57,7 @@ class User(models.Model):
     projects = models.ManyToManyField(Project)
     skills = models.ManyToManyField(Skill)
     interests = models.ManyToManyField(Interest)
-    job_experiences = models.ManyToManyField(JobExperience)
+    job_experiences = models.ManyToManyField(JobExperience, blank=True)
     educations = models.ManyToManyField(Education)
     courses = models.ManyToManyField(Course)
 
