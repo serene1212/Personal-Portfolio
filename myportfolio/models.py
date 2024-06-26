@@ -9,9 +9,8 @@ class Projects(models.Model):
 
 
 class Skill(models.Model):
-    PROFICIENCY_CHOICES = [(i, i) for i in range(1, 101)]
     name = models.CharField(max_length=255)
-    proficiency = models.ImageField(choices=PROFICIENCY_CHOICES)
+    proficiency = models.IntegerField(choices=[(i, i) for i in range(101)])
 
 
 class JobExperience(models.Model):

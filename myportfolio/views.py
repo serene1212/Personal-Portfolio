@@ -12,11 +12,13 @@ class Home(View):
         user = User.objects.first()
         job_experience = user.job_experiences.all()
         educations = user.educations.all()
+        skills = user.skills.all()
         contexts = {
             'form': form,
             'job_experiences': job_experience,
             'user': user,
             'educations': educations,
+            'skills': skills,
         }
 
     def post(self, request):
