@@ -1,21 +1,16 @@
 from django.db import models
 
 
-class Projects(models.Model):
+class Project(models.Model):
     name = models.CharField(max_length=255)
     description = models.TextField()
-    live_link = models.URLField()
+    live_link = models.URLField(null=True, blank=True)
     source_code_link = models.URLField()
 
 
 class Skill(models.Model):
     name = models.CharField(max_length=255)
     proficiency = models.IntegerField(choices=[(i, i) for i in range(101)])
-
-
-class WorkFlow(models.Model):
-    name = models.CharField(max_length=255)
-    description = models.TextField()
 
 
 class Interest(models.Model):
@@ -42,9 +37,6 @@ class Education(models.Model):
 
 class Course(models.Model):
     name = models.CharField(max_length=255)
-    skills = models.ManyToManyField(Skill)
-    start_date = models.DateField()
-    end_date = models.DateField()
     certificate = models.URLField(default=None, blank=True, null=True)
 
 
@@ -54,7 +46,7 @@ class User(models.Model):
     bio = models.TextField()
     country = models.CharField(max_length=100)
     city = models.CharField(max_length=100)
-    phone_number = models.CharField(max_length=12)
+    phone_number = models.CharField(max_length=100)
 
     profile_picture = models.ImageField(upload_to="static/img", default="profile.jpg")
 
@@ -62,13 +54,12 @@ class User(models.Model):
     github_link = models.URLField(blank=True)
     linkedin_link = models.URLField(blank=True)
 
-    projects = models.ForeignKey(Projects, on_delete=models.DO_NOTHING)
-    skills = models.ForeignKey(Skill, on_delete=models.DO_NOTHING)
-    work_flows = models.ForeignKey(WorkFlow, on_delete=models.DO_NOTHING)
-    interests = models.ForeignKey(Interest, on_delete=models.DO_NOTHING)
-    job_experiences = models.ForeignKey(JobExperience, on_delete=models.DO_NOTHING)
-    educations = models.ForeignKey(Education, on_delete=models.DO_NOTHING)
-    courses = models.ForeignKey(Course, on_delete=models.DO_NOTHING)
+    projects = models.ManyToManyField(Project)
+    skills = models.ManyToManyField(Skill)
+    interests = models.ManyToManyField(Interest)
+    job_experiences = models.ManyToManyField(JobExperience, blank=True)
+    educations = models.ManyToManyField(Education)
+    courses = models.ManyToManyField(Course)
 
 
 class Message(models.Model):

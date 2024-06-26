@@ -79,6 +79,7 @@
             <section class="resume-section" id="experience">
                 <div class="resume-section-content">
                     <h2 class="mb-5">Experience</h2>
+                    {% if job_experiences %}
                     {% for experience in job_experiences %}
                     <div class="d-flex flex-column flex-md-row justify-content-between mb-5">
                         <div class="flex-grow-1">
@@ -89,6 +90,9 @@
                         <div class="flex-shrink-0"><span class="text-primary">{{ experience.start_date }} - {% if experience.end_date %}{{ experience.end_date }}{% else %}Present{% endif %}</span></div>
                     </div>
                     {% endfor %}
+                    {% else %}
+                    <p>As a proactive and dedicated junior backend developer with a strong foundation in Django, I am eager to apply my theoretical knowledge and innovative problem-solving skills to contribute to real-world projects, despite not having formal job experience in the field.</p>
+                    {% endif %}
                 </div>
             </section>
             <hr class="m-0" />
@@ -118,19 +122,20 @@
                     <ul class="list-inline dev-icons">
                         {% for skill in skills %}
                         <li class="list-inline-item">
+                            {% if skill.name != 'django' %}
                             <i class="fab fa-{{ skill.name }}"></i>
                             <div class="progress">
                                 <div class="progress-bar" role="progressbar" style="width: {{ skill.proficiency }}%;" aria-valuenow="{{ skill.proficiency }}" aria-valuemin="0" aria-valuemax="100">{{ skill.proficiency }}%</div>
                             </div>
+                            {% else %}
+                            <img src="{% static 'img/icons8-django-48.svg' %}" alt="Django" class="django-icon"/>
+                            <div class="progress">
+                                <div class="progress-bar" role="progressbar" style="width: {{ skill.proficiency }}%;" aria-valuenow="{{ skill.proficiency }}" aria-valuemin="0" aria-valuemax="100">{{ skill.proficiency }}%</div>
+                            </div>
+                            {% endif %}
                         </li>
                         {% endfor %}
                     </ul>
-                    <div class="subheading mb-3">Workflow</div>
-                    {% for work_flow in work_flows %}
-                    <h3 class="mb-0">{{ work_flow.name }}</h3>
-                    <p class="small">{{ work_flow.description }}</p>
-                    {% endfor %}
-
                 </div>
             </section>
             <hr class="m-0" />
