@@ -42,7 +42,6 @@ class Education(models.Model):
 
 class Course(models.Model):
     name = models.CharField(max_length=255)
-    skills = models.ManyToManyField(Skill)
     start_date = models.DateField()
     end_date = models.DateField()
     certificate = models.URLField(default=None, blank=True, null=True)
