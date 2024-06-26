@@ -18,6 +18,11 @@ class InterestAdmin(admin.ModelAdmin):
     list_display = ['name']
 
 
+@admin.register(Project)
+class ProjectAdmin(admin.ModelAdmin):
+    list_display = ['name']
+
+
 models = apps.get_models()
 
 for model in models:
