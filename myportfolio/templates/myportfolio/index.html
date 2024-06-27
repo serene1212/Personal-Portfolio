@@ -123,7 +123,7 @@
                         {% for skill in skills %}
                         <li class="list-inline-item">
                             {% if skill.name == 'django' %}
-                                <img src="{% static 'myportfolio/img/icons8-django-48.svg' %}" alt="Django" class="django-icon"/>
+                                <img src="{% static 'img/icons8-django-48.svg' %}" alt="Django" class="django-icon"/>
                             <div class="progress">
                                 <div class="progress-bar" role="progressbar" style="width: {{ skill.proficiency }}%;" aria-valuenow="{{ skill.proficiency }}" aria-valuemin="0" aria-valuemax="100">{{ skill.proficiency }}%</div>
                             </div>
