@@ -1,5 +1,6 @@
 from django.shortcuts import render, redirect
 from django.views import View
+from django.core.mail import send_mail
 
 from .forms import ContactForm
 from .models import *
@@ -37,6 +38,12 @@ class Home(View):
 
             Message.objects.create(name=name, email=email, message=message)
 
+            send_mail(
+                f'Message from Arshia Rezagholi',
+                'Hey, i have received your message. i will get back to you soon.',
+                'arshiarezagholi1212@gmail.com',
+                [email],
+            )
             return redirect('thanks')
         return render(request, "index.html", {'form': form})
 
