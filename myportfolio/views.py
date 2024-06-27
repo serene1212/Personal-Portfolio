@@ -26,7 +26,7 @@ class Home(View):
             'projects': projects,
 
         }
-        return render(request, 'index.html', context=contexts)
+        return render(request, 'myportfolio/index.html', context=contexts)
 
     def post(self, request):
         form = ContactForm(request.POST)
@@ -38,8 +38,8 @@ class Home(View):
             Message.objects.create(name=name, email=email, message=message)
 
             return redirect('thanks')
-        return render(request, "index.html", {'form': form})
+        return render(request, "myportfolio/index.html", {'form': form})
 
 
 def thanks(request):
-    return render(request, 'thanks.html')
+    return render(request, 'myportfolio/thanks.html')
