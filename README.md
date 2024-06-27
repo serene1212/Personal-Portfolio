@@ -13,11 +13,10 @@ This portfolio is not just a showcase of what I've done, but a testament to what
 
 Here are the proposed stages of development for this project:
 
-1. **Stage 1**: Complete basic website layout and design.
-2. **Stage 2**: Add portfolio details.
-3. **Stage 3**: Add a contact form for visitors to get in touch.
-
-Please note that this roadmap may change over time based on various factors.
+. Will added :
+1. Automatic eamil sending future
+2. Currently it is only one page i will add more pages later
+3. Blog section
 ## License
 ![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)
 
