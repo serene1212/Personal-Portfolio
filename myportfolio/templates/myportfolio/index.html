@@ -52,7 +52,7 @@
                     </div>
                     <p class="lead mb-5">{{ user.bio }}</p>
                     <div class="social-icons">
-                        <a class="social-icon" href="{{ user.linkedIn_link }}"><i class="fab fa-linkedin-in"></i></a>
+                        <a class="social-icon" href="{{ user.linkedin_link }}"><i class="fab fa-linkedin-in"></i></a>
                         <a class="social-icon" href="{{ user.github_link }}"><i class="fab fa-github"></i></a>
                     </div>
                 </div>
@@ -104,7 +104,7 @@
                     <div class="d-flex flex-column flex-md-row justify-content-between mb-5">
                         <div class="flex-grow-1">
                             <h3 class="mb-0">{{ education.school_name }}</h3>
-                            <div class="subheading mb-3">{{ education.degree }}e</div>
+                            <div class="subheading mb-3">{{ education.degree }}</div>
                             <div>{{ education.description }}</div>
                             <p>{% if education.score %}{{ education.score }}{% endif %}</p>
                         </div>
